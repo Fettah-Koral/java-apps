@@ -12,7 +12,10 @@ class Car {
 
     /*  Constructor (Kurucu ) metot aşağıdaki şekilde tanımlanır.
         Constructor metot nesnenin özelliklerinin nesne tanımlanırken
-        nesnein özelliklerinin paremetre şeklinde verilmesine olanak tanır*/
+        nesnein özelliklerinin paremetre şeklinde verilmesine olanak tanır
+
+        Constuctor metot ile sınıf ismi aynı olmalıdır.
+        */
 
     //    burada local değişkenlerin isimlerini de nitelikler ile aynı vermek bir jargondur.
     //    sınıfa ait değişkenlerin başına this koyulmalıdır.
