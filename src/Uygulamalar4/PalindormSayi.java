@@ -1,57 +1,35 @@
 package Uygulamalar4;
+
 import java.util.Scanner;
 import java.lang.Math;
-import java.lang.String;
 
-    class PalindormSayi
-{
 
-static double digit(int x,int i){
-    double num=10, remainder;
-    num=Math.pow(num, i);
-    remainder=x%num;
-return remainder;
-}
-static int reverse(int x ,int y){
-    int rvs=0,c=y;
-    for (int i=1;i <=y; i++) {
-        if (c==1){
-            rvs+=(x%Math.pow(10, i)*Math.pow(10, y));
-            continue;
-        }
-        rvs+=(x/Math.pow(10, i-1))*Math.pow(10,c-1);
-        c--;
-    }return rvs;
-}
+public class PalindormSayi {
+    static void isPalindorme(int number) {
+        boolean isPalindorme = false;
+        int a = number / 100;
+        int b = ((number % 100) - number % 10 ) / 10;
+        int c = number % 10;
 
-static boolean isPalindorm(int x ){
-    boolean result=false;
-    double sum=0;
-    int y=0;
-    int a =x;
-    while(a>0) {
-        a/=10;
-        y++;
+        System.out.println(a);
+        System.out.println(b);
+        System.out.println(c);
+
+        int reverseNumber = 100 * c + 10 * b + 1 * a;
+        System.out.println("reverse : "+reverseNumber);
+        if (reverseNumber == number) isPalindorme = true;
+        if (isPalindorme) System.out.println(number + " sayisi palindormdur.");
+        else System.out.println(number + " sayisi palindorm degildir.");
+
     }
-    x=reverse(x, y);
-    System.out.println("+--"+x);
 
-    for (int i=1;i<=y;i++){
-        if (i==1) {
-            sum+=digit(x, i);
-            continue;
-        }
-        sum+=digit(x,i)*Math.pow(10,i-1);
+    public static void main(String[] args) {
+        Scanner inp = new Scanner(System.in);
+        System.out.print("sayi giriniz : ");
+        int number = inp.nextInt();
+        isPalindorme(number);
+
+        // 505 1, 4, 8, 99, 101, 363, 4004, 9889..
+
     }
-    if (sum==x) result=true;
-    return result;
-}
- public static void main(String[] args) {
-    
-    Scanner inp =new Scanner(System.in);
-    System.out.print("enter a number : ");
-    int input=inp.nextInt();
-    if (isPalindorm(input)) System.out.println("number is palindorm ");
-    else System.out.println("number is not palindorm ");
- }
 }
