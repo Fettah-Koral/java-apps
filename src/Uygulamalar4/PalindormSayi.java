@@ -1,35 +1,56 @@
 package Uygulamalar4;
 
 import java.util.Scanner;
-import java.lang.Math;
+/**
+ * @author muhammet fettah koral 01.09.2022
+ */
+public class PalindormSayi{
 
+    static boolean isPalindorm(int number) {
+        int orginalNumber=number;
+        int digits = numberOfDigits(number);
+        double multiplier;
+        double reverseNumber=0;
 
-public class PalindormSayi {
-    static void isPalindorme(int number) {
-        boolean isPalindorme = false;
-        int a = number / 100;
-        int b = ((number % 100) - number % 10 ) / 10;
-        int c = number % 10;
-
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
-
-        int reverseNumber = 100 * c + 10 * b + 1 * a;
-        System.out.println("reverse : "+reverseNumber);
-        if (reverseNumber == number) isPalindorme = true;
-        if (isPalindorme) System.out.println(number + " sayisi palindormdur.");
-        else System.out.println(number + " sayisi palindorm degildir.");
-
+        while(digits>0){
+            multiplier=number%10;
+            number/=10;
+            reverseNumber=multiplier * Math.pow(10, digits-1)+reverseNumber;
+            digits--;
+        }
+        System.out.println("reverse number is : "+ (int) reverseNumber);
+        if (reverseNumber==orginalNumber) {
+            return true;
+        }
+        return false;
+    }
+    static int numberOfDigits(int number) {
+        int numberOfDigit = 0;
+        while (true) {
+            if (number == 0) {
+                break;
+            } else {
+                number = number / 10;
+                numberOfDigit++;
+            }
+        }
+        System.out.println("basamak sayısı : " + numberOfDigit);
+        return numberOfDigit;
     }
 
     public static void main(String[] args) {
-        Scanner inp = new Scanner(System.in);
-        System.out.print("sayi giriniz : ");
-        int number = inp.nextInt();
-        isPalindorme(number);
+        // TODO code application logic here
+        System.out.print("lütfen bir sayı giriniz : ");
+        Scanner input = new Scanner(System.in);
+        int number= input.nextInt();
+        if (isPalindorm(number)) {
+            System.out.println(number+" sayısı palindormdur.");
+        }
+        else System.out.println(number+" sayısı palindorm değildir.");
 
-        // 505 1, 4, 8, 99, 101, 363, 4004, 9889..
 
     }
+
+
+
 }
