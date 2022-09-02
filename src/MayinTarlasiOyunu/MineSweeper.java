@@ -55,8 +55,6 @@ public class MineSweeper {
 
             int r = tmp== 0 ? 0 : (int) Math.ceil(tmp / (double)column)- 1;
             int c = tmp % (column);
-            System.out.println(r);
-            System.out.println(Math.ceil(tmp /(double) column));
 
             if (matrixOfMine[r][c].equals(" * ")) {
                 continue;
